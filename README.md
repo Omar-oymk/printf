@@ -1,3 +1,3 @@
 # printf
 
-## Creating printf function in c from scratch
+## Creating printf function in C from scratch
