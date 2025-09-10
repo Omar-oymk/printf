@@ -21,25 +21,28 @@ int print_str(char* str, int printed_counter)
 
 int print_int(int num, int printed_counter)
 {
+    // 0
     int i = 0;
     char* str = "";
     int negative = 0;
 
     if (num == 0)
     {
-        str = '0';
-        _putchar(str);
+        str[i] = '0';
+        _putchar(str[i]);
+        return ++printed_counter;
     }
 
     if (num < 0)
     {
         negative = 1;
         _putchar('-');
+        printed_counter++;
     }
 
     while (num != 0)
     {
-        str[i] = num % 10;
+        str[i] = num % 10 + '0';
         num = num / 10;
         i++;
     }
@@ -52,10 +55,7 @@ int print_int(int num, int printed_counter)
         i--;
     }
 
-    if (negative == 1)
-        printed_counter += _strlen(str) + 1;
-    else
-        printed_counter += _strlen(str);
+    printed_counter += _strlen(str);
 
     return printed_counter;
 }

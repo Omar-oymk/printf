@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
             {
 
             }
-            else if (format[i+1] == 'c')
+            else if (format[i+1] == 's')
             {
                 
             }
@@ -32,5 +32,7 @@ int _printf(const char *format, ...)
             Print_counter++;
             _putchar(format[i]);
         }
+        i++;
     }
+    return Print_counter;
 }
