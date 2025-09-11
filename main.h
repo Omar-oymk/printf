@@ -7,6 +7,12 @@
 #include <stdlib.h>
 #include <limits.h>
 
+#define BUFFER_SIZE 1024
+
+typedef struct {
+    char buffer[BUFFER_SIZE];
+    int index;
+} Buffer;
 
 int _putchar(char c);
 int _strlen(char* str);
