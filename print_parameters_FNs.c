@@ -1,14 +1,14 @@
 #include "main.h"
 
 
-int print_char(char c, int printed_counter, char* buff)
+int print_char(char c, int printed_counter, Buffer* buff)
 {
     _putchar(c);
     printed_counter++;
     return printed_counter;
 }
 
-int print_str(char* str, int printed_counter, char* buff)
+int print_str(char* str, int printed_counter, Buffer* buff)
 {
     int i;
     for (i = 0; i < _strlen(str); i++)
@@ -19,7 +19,7 @@ int print_str(char* str, int printed_counter, char* buff)
     return(printed_counter);
 }
 
-int print_int(int num, int printed_counter, char* buff)
+int print_int(int num, int printed_counter, Buffer* buff)
 {
     int i = 0;
     int negative = 0;
@@ -69,7 +69,7 @@ int print_int(int num, int printed_counter, char* buff)
     return printed_counter;
 }
 
-int print_unsigned_int(unsigned int num, int printed_counter, char* buff)
+int print_unsigned_int(unsigned int num, int printed_counter, Buffer* buff)
 {
     int i = 0;
     
