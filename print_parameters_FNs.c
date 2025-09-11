@@ -3,18 +3,19 @@
 
 int print_char(char c, int printed_counter, Buffer* buff)
 {
-    _putchar(c);
+    add_to_buffer_char(buff, c);
     printed_counter++;
     return printed_counter;
 }
 
 int print_str(char* str, int printed_counter, Buffer* buff)
 {
-    int i;
-    for (i = 0; i < _strlen(str); i++)
-    {
-        _putchar(str[i]);
-    }
+    // int i;
+    // for (i = 0; i < _strlen(str); i++)
+    // {
+    //     _putchar(str[i]);
+    // }
+    add_to_buffer(buff, str);
     printed_counter += _strlen(str);
     return(printed_counter);
 }
@@ -55,13 +56,15 @@ int print_int(int num, int printed_counter, Buffer* buff)
     }
 
     str[i] = '\0'; 
-    i--;
+    // i--;
 
-    while (i >= 0)
-    {
-        _putchar(str[i]);
-        i--;
-    }
+    // while (i >= 0)
+    // {
+    //     _putchar(str[i]);
+    //     i--;
+    // }
+
+    add_to_buffer(buff, str);
 
     printed_counter += _strlen(str);
     free(str);
@@ -89,13 +92,14 @@ int print_unsigned_int(unsigned int num, int printed_counter, Buffer* buff)
     }
 
     str[i] = '\0'; 
-    i--;
+    // i--;
 
-    while (i >= 0)
-    {
-        _putchar(str[i]);
-        i--;
-    }
+    // while (i >= 0)
+    // {
+    //     _putchar(str[i]);
+    //     i--;
+    // }
+    add_to_buffer(buff, str);
 
     printed_counter += _strlen(str);
     free(str);

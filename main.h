@@ -18,19 +18,23 @@ int _putchar(char c);
 int _strlen(char* str);
 void _revstr(char* str);
 
+void flush_buffer(Buffer* buff);
+void add_to_buffer(Buffer* buff, char* str);
+void add_to_buffer_char(Buffer* buff, char c);
+
 char* int_to_hex(unsigned int num);
 char* int_to_hex_capital(unsigned int num);
 char* int_to_octal(unsigned int num);
 char* int_to_binary(unsigned int num);
 
-int print_char(char c, int printed_counter, char* buff);
-int print_str(char* str, int printed_counter, char* buff);
-int print_int(int num, int printed_counter, char* buff);
-int print_unsigned_int(unsigned int num, int printed_counter, char* buff);
-int print_hex_small(int num, int printed_counter, char* buff);
-int print_hex_capital(int num, int printed_counter, char* buff);
-int print_octal(int num, int printed_counter, char* buff);
-int print_binary(int num, int printed_counter, char* buff);
+int print_char(char c, int printed_counter, Buffer* buff);
+int print_str(char* str, int printed_counter, Buffer* buff);
+int print_int(int num, int printed_counter, Buffer* buff);
+int print_unsigned_int(unsigned int num, int printed_counter, Buffer* buff);
+int print_hex_small(int num, int printed_counter, Buffer* buff);
+int print_hex_capital(int num, int printed_counter, Buffer* buff);
+int print_octal(int num, int printed_counter, Buffer* buff);
+int print_binary(int num, int printed_counter, Buffer* buff);
 
 int _printf(const char *format, ...);
 

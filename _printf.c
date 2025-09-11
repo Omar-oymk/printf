@@ -53,20 +53,22 @@ int _printf(const char *format, ...)
         {
             if (format[i+1] == 'n')
             {
-                _putchar('\n');
-                buf.buffer[buf.index] = '\n';
+                // _putchar('\n');
+                add_to_buffer_char(&buf, '\n');
             }
             i +=2;
         }
         else
         {
-            _putchar(format[i]);
-            buf.buffer[buf.index] = format[i];
+            // _putchar(format[i]);
+            add_to_buffer_char(&buf, format[i]);
 
             Print_counter++;
             i++;
         }
         va_end(args);
     }
+    flush_buffer(&buf);
+
     return Print_counter;
 }

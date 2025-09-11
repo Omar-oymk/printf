@@ -9,7 +9,7 @@ void flush_buffer(Buffer* buff)
     }
 }
 
-void add_to_buffer(Buffer* buff, const char* str)
+void add_to_buffer(Buffer* buff, char* str)
 {
     int len_str = _strlen(str);
     int i = 0;
@@ -30,4 +30,15 @@ void add_to_buffer(Buffer* buff, const char* str)
         buff->buffer[buff->index] = str[i];
         buff->index++;
     }
+}
+
+void add_to_buffer_char(Buffer* buff, char c)
+{
+    if (buff->index + 1 > BUFFER_SIZE)
+    {
+        flush_buffer(buff);
+    }
+
+    buff->buffer[buff->index] = c;
+    buff->index++;
 }
