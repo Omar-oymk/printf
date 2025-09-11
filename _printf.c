@@ -25,6 +25,10 @@ int _printf(const char *format, ...)
             {
                 Print_counter += print_str(va_arg(args, char*), Print_counter);
             }
+            else if (format[i+1] == 'x')
+            {
+                Print_counter += print_hex_small(va_arg(args, int), Print_counter);
+            }
             i += 2;
         }
         else if (format[i] == '\\')
