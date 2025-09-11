@@ -1,36 +1,40 @@
-#include <stdio.h>
-#include "main.h"
+#include "main.h"  // your _printf prototype
 
 int main(void)
 {
-    int count_std, count_custom;
+    int ret1, ret2;
 
-    /* 1. Zero */
-    count_std = printf("Binary (0): %s\n", "0");
-    count_custom = _printf("Binary (0): %b\n", 0);
-    printf("STD count=%d, Custom count=%d\n\n", count_std, count_custom);
+    /* Test with characters */
+    ret1 = printf("Char: %c\n", 'A');
+    ret2 = _printf("Char: %c\n", 'A');
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* 2. Small number */
-    count_std = printf("Binary (5): %s\n", "101");
-    count_custom = _printf("Binary (5): %b\n", 5);
-    printf("STD count=%d, Custom count=%d\n\n", count_std, count_custom);
+    /* Test with string */
+    ret1 = printf("String: %s\n", "Hello, world!");
+    ret2 = _printf("String: %s\n", "Hello, world!");
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* 3. Power of two */
-    count_std = printf("Binary (16): %s\n", "10000");
-    count_custom = _printf("Binary (16): %b\n", 16);
-    printf("STD count=%d, Custom count=%d\n\n", count_std, count_custom);
+    /* Test with signed int */
+    ret1 = printf("Signed int: %d\n", -12345);
+    ret2 = _printf("Signed int: %d\n", -12345);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* 4. Max positive int */
-    count_std = printf("Binary (INT_MAX): %s\n", 
-                       "1111111111111111111111111111111");
-    count_custom = _printf("Binary (INT_MAX): %b\n", INT_MAX);
-    printf("STD count=%d, Custom count=%d\n\n", count_std, count_custom);
+    /* Test with unsigned int */
+    ret1 = printf("Unsigned int: %u\n", 4294967295u);
+    ret2 = _printf("Unsigned int: %u\n", 4294967295u);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* 5. Unsigned wraparound (UINT_MAX) */
-    count_std = printf("Binary (UINT_MAX): %s\n", 
-                       "11111111111111111111111111111111");
-    count_custom = _printf("Binary (UINT_MAX): %b\n", UINT_MAX);
-    printf("STD count=%d, Custom count=%d\n\n", count_std, count_custom);
+    /* Test with hex */
+    ret1 = printf("Hex (lower): %x\n", 1024);
+    ret2 = _printf("Hex (lower): %x\n", 1024);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    return 0;
+    /* Mixed */
+    ret1 = printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n",
+                  'Z', "Test", 1024, 1024, 1024);
+    ret2 = _printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n",
+                  'Z', "Test", 1024, 1024, 1024);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
+
+    return (0);
 }

@@ -1,7 +1,35 @@
 #include "main.h"
 
-
-
+/**
+ * _printf - Produces output according to a format.
+ * @format: A character string composed of zero or more directives.
+ *          The format string is composed of ordinary characters that
+ *          are copied unchanged to the output and conversion
+ *          specifications, each of which results in fetching zero or
+ *          more subsequent arguments.
+ *
+ * Description:
+ * This function emulates the behavior of the standard printf function,
+ * supporting a subset of format specifiers. It uses a local buffer to
+ * minimize system calls by batching characters before writing them to
+ * standard output.
+ *
+ * Supported conversion specifiers:
+ *   %d, %i - Signed decimal integer
+ *   %u     - Unsigned decimal integer
+ *   %c     - Single character
+ *   %s     - String of characters
+ *   %x     - Unsigned hexadecimal integer (lowercase)
+ *   %X     - Unsigned hexadecimal integer (uppercase)
+ *   %o     - Unsigned octal integer
+ *   %b     - Unsigned binary integer
+ *
+ * Special handling:
+ *   \\n    - Interpreted as a newline character
+ *
+ * Return: The number of characters printed (excluding the null byte
+ *         used to end output to strings).
+ */
 int _printf(const char *format, ...)
 {
     int Print_counter = 0, i = 0;

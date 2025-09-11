@@ -1,6 +1,17 @@
 #include "main.h"
 
-
+/**
+ * int_to_hex - Converts an unsigned integer to a lowercase hexadecimal string.
+ * @num: The unsigned integer to convert.
+ *
+ * Description:
+ * This function dynamically allocates memory for a string that holds the
+ * hexadecimal representation of @num. Letters are represented in lowercase
+ * (a–f). The string is null-terminated and reversed to match the correct
+ * order. Caller is responsible for freeing the returned string.
+ *
+ * Return: Pointer to the resulting string, or NULL if memory allocation fails.
+ */
 char* int_to_hex(unsigned int num)
 {
     int i;
@@ -30,6 +41,18 @@ char* int_to_hex(unsigned int num)
     return hex_str;
 }
 
+/**
+ * int_to_hex_capital - Converts an unsigned integer to an uppercase hexadecimal string.
+ * @num: The unsigned integer to convert.
+ *
+ * Description:
+ * This function dynamically allocates memory for a string that holds the
+ * hexadecimal representation of @num. Letters are represented in uppercase
+ * (A–F). The string is null-terminated and reversed to match the correct
+ * order. Caller is responsible for freeing the returned string.
+ *
+ * Return: Pointer to the resulting string, or NULL if memory allocation fails.
+ */
 char* int_to_hex_capital(unsigned int num)
 {
     int i;
@@ -59,6 +82,18 @@ char* int_to_hex_capital(unsigned int num)
     return hex_str;
 }
 
+/**
+ * int_to_octal - Converts an unsigned integer to an octal string.
+ * @num: The unsigned integer to convert.
+ *
+ * Description:
+ * This function dynamically allocates memory for a string that holds the
+ * octal representation of @num. The string is null-terminated and reversed
+ * to match the correct order. Caller is responsible for freeing the returned
+ * string.
+ *
+ * Return: Pointer to the resulting string, or NULL if memory allocation fails.
+ */
 char* int_to_octal(unsigned int num)
 {
     int i;
@@ -85,6 +120,18 @@ char* int_to_octal(unsigned int num)
     return octal_str;
 }
 
+/**
+ * int_to_binary - Converts an unsigned integer to a binary string.
+ * @num: The unsigned integer to convert.
+ *
+ * Description:
+ * This function dynamically allocates memory for a string that holds the
+ * binary representation of @num. The string is null-terminated and reversed
+ * to match the correct order. Caller is responsible for freeing the returned
+ * string.
+ *
+ * Return: Pointer to the resulting string, or NULL if memory allocation fails.
+ */
 char* int_to_binary(unsigned int num)
 {
     int i;
