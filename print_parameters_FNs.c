@@ -23,16 +23,16 @@ int print_int(int num, int printed_counter)
 {
     // 0
     int i = 0;
-    char* str = "";
     int negative = 0;
-
+    
     if (num == 0)
     {
-        str[i] = '0';
-        _putchar(str[i]);
+        _putchar('0');
         return ++printed_counter;
     }
-
+    
+    char* str = malloc(11);
+    
     if (num < 0)
     {
         negative = 1;
