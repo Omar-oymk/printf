@@ -6,5 +6,5 @@ int main(void)
     char* name = "Abdullah";
     char grade = 'A';
 
-    _printf("hi, %s,I am %d years old and I got %c.", name, x, grade);
+    _printf("hi, %s,I am %d years old and I got %c.\n", name, x, grade);
 }

@@ -29,7 +29,11 @@ int _printf(const char *format, ...)
         }
         else if (format[i] == '\\')
         {
-            continue;
+            if (format[i+1] == 'n')
+            {
+                _putchar('\n');
+            }
+            i +=2;
         }
         else
         {
