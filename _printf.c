@@ -29,6 +29,10 @@ int _printf(const char *format, ...)
             {
                 Print_counter += print_hex_small(va_arg(args, int), Print_counter);
             }
+            else if (format[i+1] == 'o')
+            {
+                Print_counter += print_octal(va_arg(args, int), Print_counter);
+            }
             else if (format[i+1] == 'u')
             {
                 Print_counter += print_unsigned_int(va_arg(args, unsigned int), Print_counter);

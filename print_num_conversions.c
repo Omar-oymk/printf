@@ -7,3 +7,10 @@ int print_hex_small(int num, int printed_counter)
     printed_counter = print_str(hex_str, printed_counter);
     return printed_counter;
 }
+
+int print_octal(int num, int printed_counter)
+{
+    char* octal_str = int_to_octal(num);
+    printed_counter = print_str(octal_str, printed_counter);
+    return printed_counter;
+}

@@ -29,3 +29,29 @@ char* int_to_hex(unsigned int num)
 
     return hex_str;
 }
+
+char* int_to_octal(unsigned int num)
+{
+    int i;
+    char* octal_str = malloc(23);
+
+    if (!octal_str) return NULL;
+
+    if (num == 0)
+    {
+        octal_str[0] = '0';
+        octal_str[1] = '\0';
+        return octal_str;
+    }
+
+    for (i = 0; num != 0; i++)
+    {
+        int digit = num % 8;
+        octal_str[i] = digit + '0';
+        num /= 8;
+    }
+    octal_str[i] = '\0';
+    _revstr(octal_str);
+
+    return octal_str;
+}

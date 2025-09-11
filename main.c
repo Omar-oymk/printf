@@ -25,6 +25,10 @@ int main(void)
     _printf("Unsigned int: %u\n", b);
     printf("Unsigned int: %u\n", b);
 
+    /* Octal */
+    _printf("Octal: %o\n", b);
+    printf("Octal: %o\n", b);
+
     /* Hexadecimal */
     _printf("Hex (lower): %x\n", b);
     printf("Hex (lower): %x\n", b);
@@ -37,4 +41,3 @@ int main(void)
 
     return (0);
 }
-
