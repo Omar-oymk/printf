@@ -2,8 +2,9 @@
 
 int main(void)
 {
-    int x = 3535;
+    int x = 20;
+    char* name = "Abdullah";
+    char grade = 'A';
 
-    print_int(x,0);
-    return 0;
+    _printf("hi, %s,I am %d years old and I got %c.", name, x, grade);
 }
