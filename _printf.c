@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
     {
         if (format[i] == '%')
         {
-            if (format[i+1] == 'd')
+            if (format[i+1] == 'd' || format[i+1] == 'i')
             {
                 Print_counter += print_int(va_arg(args, int), Print_counter);
             }
