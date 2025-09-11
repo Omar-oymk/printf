@@ -5,8 +5,11 @@
 int _printf(const char *format, ...)
 {
     int Print_counter = 0, i = 0;
+    char buffer[1024];
+    int index = 0;
     va_list args;
     va_start(args, format);
+
 
     while (format[i])
     {
@@ -14,36 +17,36 @@ int _printf(const char *format, ...)
         {
             if (format[i+1] == 'd' || format[i+1] == 'i')
             {
-                Print_counter = print_int(va_arg(args, int), Print_counter);
+                Print_counter = print_int(va_arg(args, int), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'c')
             {
-                Print_counter = print_char(va_arg(args, int), Print_counter);
+                Print_counter = print_char(va_arg(args, int), Print_counter, &buffer[Print_counter]);
 
             }
             else if (format[i+1] == 's')
             {
-                Print_counter = print_str(va_arg(args, char*), Print_counter);
+                Print_counter = print_str(va_arg(args, char*), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'x')
             {
-                Print_counter = print_hex_small(va_arg(args, int), Print_counter);
+                Print_counter = print_hex_small(va_arg(args, int), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'X')
             {
-                Print_counter = print_hex_capital(va_arg(args, int), Print_counter);
+                Print_counter = print_hex_capital(va_arg(args, int), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'o')
             {
-                Print_counter = print_octal(va_arg(args, int), Print_counter);
+                Print_counter = print_octal(va_arg(args, int), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'b')
             {
-                Print_counter = print_binary(va_arg(args, int), Print_counter);
+                Print_counter = print_binary(va_arg(args, int), Print_counter, &buffer[Print_counter]);
             }
             else if (format[i+1] == 'u')
             {
-                Print_counter = print_unsigned_int(va_arg(args, unsigned int), Print_counter);
+                Print_counter = print_unsigned_int(va_arg(args, unsigned int), Print_counter, &buffer[Print_counter]);
             }
             i += 2;
         }
@@ -52,12 +55,15 @@ int _printf(const char *format, ...)
             if (format[i+1] == 'n')
             {
                 _putchar('\n');
+                buffer[Print_counter] = '\n';
             }
             i +=2;
         }
         else
         {
             _putchar(format[i]);
+            buffer[Print_counter] = format[i];
+
             Print_counter++;
             i++;
         }
