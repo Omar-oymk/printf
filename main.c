@@ -1,43 +1,40 @@
-#include "main.h"
+#include "main.h"  // your _printf prototype
 
 int main(void)
 {
-    int a = -12345;
-    unsigned int b = 4294967295; // UINT_MAX
-    char *str = "Hello, world!";
+    int ret1, ret2;
 
-    /* Characters */
-    _printf("Char: %c\n", 'A');
-    printf("Char: %c\n", 'A');
+    /* Test with characters */
+    ret1 = printf("Char: %c\n", 'A');
+    ret2 = _printf("Char: %c\n", 'A');
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* Strings */
-    _printf("String: %s\n", str);
-    printf("String: %s\n", str);
+    /* Test with string */
+    ret1 = printf("String: %s\n", "Hello, world!");
+    ret2 = _printf("String: %s\n", "Hello, world!");
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* Signed integers */
-    _printf("Signed int: %d\n", a);
-    printf("Signed int: %d\n", a);
+    /* Test with signed int */
+    ret1 = printf("Signed int: %d\n", -12345);
+    ret2 = _printf("Signed int: %d\n", -12345);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    _printf("Signed int (i): %i\n", a);
-    printf("Signed int (i): %i\n", a);
+    /* Test with unsigned int */
+    ret1 = printf("Unsigned int: %u\n", 4294967295u);
+    ret2 = _printf("Unsigned int: %u\n", 4294967295u);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
-    /* Unsigned integers */
-    _printf("Unsigned int: %u\n", b);
-    printf("Unsigned int: %u\n", b);
-
-    /* Octal */
-    _printf("Octal: %o\n", b);
-    printf("Octal: %o\n", b);
-
-    /* Hexadecimal */
-    _printf("Hex (lower): %x\n", b);
-    printf("Hex (lower): %x\n", b);
+    /* Test with hex */
+    ret1 = printf("Hex (lower): %x\n", 1024);
+    ret2 = _printf("Hex (lower): %x\n", 1024);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
     /* Mixed */
-    _printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n", 
-            'Z', "Test", 1024, 1024, 1024);
-    printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n", 
-           'Z', "Test", 1024, 1024, 1024);
+    ret1 = printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n",
+                  'Z', "Test", 1024, 1024, 1024);
+    ret2 = _printf("Mix: char=%c, str=%s, int=%d, unsigned=%u, hex=%x\n",
+                  'Z', "Test", 1024, 1024, 1024);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
     return (0);
 }
