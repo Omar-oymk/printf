@@ -29,6 +29,10 @@ int _printf(const char *format, ...)
             {
                 Print_counter = print_hex_small(va_arg(args, int), Print_counter);
             }
+            else if (format[i+1] == 'X')
+            {
+                Print_counter = print_hex_capital(va_arg(args, int), Print_counter);
+            }
             else if (format[i+1] == 'o')
             {
                 Print_counter = print_octal(va_arg(args, int), Print_counter);

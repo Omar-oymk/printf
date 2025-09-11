@@ -25,8 +25,12 @@ int main(void)
     printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
     /* Test with hex */
-    ret1 = printf("Hex (lower): %x\n", 1024);
-    ret2 = _printf("Hex (lower): %x\n", 1024);
+    ret1 = printf("Hex (lower): %x\n", 255);
+    ret2 = _printf("Hex (lower): %x\n", 255);
+    printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
+
+    ret1 = printf("Hex (capital): %X\n", 255);
+    ret2 = _printf("Hex (capital): %X\n", 255);
     printf("printf returned: %d, _printf returned: %d\n\n", ret1, ret2);
 
     /* Mixed */
