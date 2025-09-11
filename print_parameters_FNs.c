@@ -21,7 +21,6 @@ int print_str(char* str, int printed_counter)
 
 int print_int(int num, int printed_counter)
 {
-    // 0
     int i = 0;
     int negative = 0;
     
@@ -32,12 +31,20 @@ int print_int(int num, int printed_counter)
     }
     
     char* str = malloc(11);
-    
+
     if (num < 0)
     {
         negative = 1;
         _putchar('-');
         printed_counter++;
+        // special case INT_MIN
+        if (num == INT_MIN)
+        {
+            printed_counter = print_str("2147483648", printed_counter);
+            free(str);
+            return printed_counter;
+        }
+        num = - num;
     }
 
     while (num != 0)
@@ -47,6 +54,7 @@ int print_int(int num, int printed_counter)
         i++;
     }
 
+    str[i] = '\0'; 
     i--;
 
     while (i >= 0)
@@ -56,6 +64,41 @@ int print_int(int num, int printed_counter)
     }
 
     printed_counter += _strlen(str);
+    free(str);
+
+    return printed_counter;
+}
+
+int print_unsigned_int(unsigned int num, int printed_counter)
+{
+    int i = 0;
+    
+    if (num == 0)
+    {
+        _putchar('0');
+        return ++printed_counter;
+    }
+
+    char* str = malloc(11);
+
+    while (num != 0)
+    {
+        str[i] = num % 10 + '0';
+        num = num / 10;
+        i++;
+    }
+
+    str[i] = '\0'; 
+    i--;
+
+    while (i >= 0)
+    {
+        _putchar(str[i]);
+        i--;
+    }
+
+    printed_counter += _strlen(str);
+    free(str);
 
     return printed_counter;
 }
