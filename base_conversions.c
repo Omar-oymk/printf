@@ -84,3 +84,29 @@ char* int_to_octal(unsigned int num)
 
     return octal_str;
 }
+
+char* int_to_binary(unsigned int num)
+{
+    int i;
+    char* binary_str = malloc(65);
+
+    if (!binary_str) return NULL;
+
+    if (num == 0)
+    {
+        binary_str[0] = '0';
+        binary_str[1] = '\0';
+        return binary_str;
+    }
+
+    for (i = 0; num != 0; i++)
+    {
+        int digit = num % 2;
+        binary_str[i] = digit + '0';
+        num /= 2;
+    }
+    binary_str[i] = '\0';
+    _revstr(binary_str);
+
+    return binary_str;
+}

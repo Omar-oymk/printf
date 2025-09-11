@@ -21,3 +21,10 @@ int print_octal(int num, int printed_counter)
     printed_counter = print_str(octal_str, printed_counter);
     return printed_counter;
 }
+
+int print_binary(int num, int printed_counter)
+{
+    char* binary_str = int_to_binary(num);
+    printed_counter = print_str(binary_str, printed_counter);
+    return printed_counter;
+}

@@ -15,6 +15,7 @@ void _revstr(char* str);
 char* int_to_hex(unsigned int num);
 char* int_to_hex_capital(unsigned int num);
 char* int_to_octal(unsigned int num);
+char* int_to_binary(unsigned int num);
 
 int print_char(char c, int printed_counter);
 int print_str(char* str, int printed_counter);
@@ -23,6 +24,7 @@ int print_unsigned_int(unsigned int num, int printed_counter);
 int print_hex_small(int num, int printed_counter);
 int print_hex_capital(int num, int printed_counter);
 int print_octal(int num, int printed_counter);
+int print_binary(int num, int printed_counter);
 
 int _printf(const char *format, ...);
 
